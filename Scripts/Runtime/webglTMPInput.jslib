@@ -16,6 +16,7 @@ mergeInto(LibraryManager.library, {
             end:input.selectionEnd})); 
         }
       });
+      input.addEventListener('click',function (e) { input.focus(); });
       document.body.append(input);
     }
     input.value = UTF8ToString(str);
