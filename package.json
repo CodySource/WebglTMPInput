@@ -1,0 +1,14 @@
+{
+  "name": "com.codysource.webgltmpinput",
+  "version": "1.0.0",
+  "displayName": "WebGL TMP Input",
+  "description": "This package allows for text input on mobile devices while using WebGL builds.",
+  "unity": "2020.3",
+  "unityRelease": "15f2",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "author": {
+    "name": "Cody Source"
+  }
+}
