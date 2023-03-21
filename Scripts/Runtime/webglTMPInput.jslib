@@ -22,6 +22,7 @@ mergeInto(LibraryManager.library, {
     input.selectionStart = start;
     input.selectionEnd = end;
     input.focus();
+    input.click();
   },
   ReleaseFocus: function(){
     var s = document.getElementById('webglTMPInput');
