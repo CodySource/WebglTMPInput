@@ -36,7 +36,7 @@ mergeInto(LibraryManager.library, {
       });
       document.body.append(input);
     }
-    uCanvas.setAttribute('input',(this.getAttribute('id')?'webglTMPInput':'webglTMPInputML'));
+    uCanvas.setAttribute('input',(uCanvas.getAttribute('id')?'webglTMPInput':'webglTMPInputML'));
     input.value = UTF8ToString(str);
     input.selectionStart = start;
     input.selectionEnd = end;

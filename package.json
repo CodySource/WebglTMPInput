@@ -1,6 +1,6 @@
 {
   "name": "com.codysource.webgltmpinput",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "displayName": "WebGL TMP Input",
   "description": "This package allows for text input on mobile devices while using WebGL builds.",
   "unity": "2020.3",
