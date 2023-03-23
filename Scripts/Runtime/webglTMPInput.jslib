@@ -6,6 +6,7 @@ mergeInto(LibraryManager.library, {
     {
       var input = document.createElement((single)?'input':'textarea');
       input.setAttribute('id',(single)?'webglTMPInput':'weblglTMPInputML');
+      instance.setAttribute('input',(single)?'webglTMPInput':'weblglTMPInputML');
       Object.assign(input.style,{position:'absolute',right:'-100%',top:'-100%'});
       input.addEventListener('input', function (t) { 
         if (this === document.activeElement) {
@@ -16,7 +17,19 @@ mergeInto(LibraryManager.library, {
             end:input.selectionEnd})); 
         }
       });
-      input.addEventListener('click',function (e) { this.focus(); });
+      input.addEventListener('click',function (e) { this.focus(); instance.setAttribute('instance',(this.getAttribute('id')?'webglTMPInput':'weblglTMPInputML')); });
+      instance.addEventListener('click',function (e) { 
+        switch (instance.getAttribute('input'))
+        {
+          case 'webglTMPInput': 
+            document.getElementById('webglTMPInput').focus();
+            break;
+          case 'webglTMPInputML':
+            document.getElementById('webglTMPInputML').focus();
+            break;
+          default: break;
+        }  
+      });
       document.body.append(input);
     }
     input.value = UTF8ToString(str);
@@ -26,6 +39,7 @@ mergeInto(LibraryManager.library, {
     input.click();
   },
   ReleaseFocus: function(){
+    instance.setAttribute('input','');
     var s = document.getElementById('webglTMPInput');
     if (s != null) s.blur();
     var m = document.getElementById('webglTMPInputML');
