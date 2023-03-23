@@ -2,11 +2,12 @@ mergeInto(LibraryManager.library, {
 
   TextToWeb: function(single, str, start, end) {
     var input = document.getElementById((single)?'webglTMPInput':'weblglTMPInputML');
+    var uCanvas = document.getElementById('unity-canvas');
     if (input == null)
-    {
+    {      
       var input = document.createElement((single)?'input':'textarea');
       input.setAttribute('id',(single)?'webglTMPInput':'weblglTMPInputML');
-      instance.setAttribute('input',(single)?'webglTMPInput':'weblglTMPInputML');
+      uCanvas.setAttribute('input',(single)?'webglTMPInput':'weblglTMPInputML');
       Object.assign(input.style,{position:'absolute',right:'-100%',top:'-100%'});
       input.addEventListener('input', function (t) { 
         if (this === document.activeElement) {
@@ -17,9 +18,9 @@ mergeInto(LibraryManager.library, {
             end:input.selectionEnd})); 
         }
       });
-      input.addEventListener('click',function (e) { this.focus(); instance.setAttribute('instance',(this.getAttribute('id')?'webglTMPInput':'weblglTMPInputML')); });
-      instance.addEventListener('click',function (e) { 
-        switch (instance.getAttribute('input'))
+      input.addEventListener('click',function (e) { this.focus(); uCanvas.setAttribute('input',(this.getAttribute('id')?'webglTMPInput':'weblglTMPInputML')); });
+      uCanvas.addEventListener('click',function (e) { 
+        switch (uCanvas.getAttribute('input'))
         {
           case 'webglTMPInput': 
             document.getElementById('webglTMPInput').focus();
@@ -39,7 +40,8 @@ mergeInto(LibraryManager.library, {
     input.click();
   },
   ReleaseFocus: function(){
-    instance.setAttribute('input','');
+    var uCanvas = document.getElementById('unity-canvas');
+    uCanvas.setAttribute('input','');
     var s = document.getElementById('webglTMPInput');
     if (s != null) s.blur();
     var m = document.getElementById('webglTMPInputML');
